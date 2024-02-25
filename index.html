@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+</head>
+<body>
+  <h1>Counter: <span id="counter">0</span></h1>
+  <button onclick="updateCounter('+')">Increment (+)</button>
+  <button onclick="updateCounter('-')">Decrement (-)</button>
+
+  <script>
+    async function updateCounter(action) {
+      const response = await fetch(`https://your-vercel-url.vercel.app/counter/${action}`);
+      const result = await response.json();
+      document.getElementById("counter").innerText = result.counter;
+    }
+  </script>
+</body>
+</html>
